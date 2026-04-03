@@ -6,5 +6,8 @@
     "scripts": {
       "start": "node server.js"
     },
-    "dependencies": {}
+    "dependencies": {
+        "express": "^4.19.2",
+        "openai": "^4.0.0"
+    }
   }
