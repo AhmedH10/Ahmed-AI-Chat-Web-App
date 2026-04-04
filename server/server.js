@@ -1,8 +1,16 @@
 import express from "express";
 import OpenAI from "openai";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 app.use(express.json());
+
+// Fix __dirname in ES modules
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, "../client")));
 
 // Initialize OpenAI
 const openai = new OpenAI({
@@ -12,7 +20,7 @@ const openai = new OpenAI({
 // In-memory chat history
 let history = [];
 
-// Chat endpoint
+// 🔹 Chat endpoint
 app.post("/api/chat", async (req, res) => {
   const { prompt } = req.body;
 
@@ -33,22 +41,28 @@ app.post("/api/chat", async (req, res) => {
 
     res.json(entry);
   } catch (err) {
-    console.error(err);
+    console.error("OpenAI Error:", err);
     res.status(500).json({ error: "OpenAI API error" });
   }
 });
 
-// Get history
+// 🔹 Get chat history
 app.get("/api/history", (req, res) => {
   res.json(history);
 });
 
-// Clear history
+// 🔹 Clear chat history
 app.delete("/api/history", (req, res) => {
   history = [];
   res.json({ message: "History cleared" });
 });
 
+// 🔹 Serve frontend (main route)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/index.html"));
+});
+
+// Start server
 app.listen(3000, () => {
-  console.log("Server running on port 3000");
+  console.log("Server running at http://localhost:3000");
 });

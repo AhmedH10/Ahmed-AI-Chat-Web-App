@@ -4,10 +4,11 @@
     "main": "server.js",
     "type": "module",
     "scripts": {
-      "start": "node server.js"
+        "start": "node server.js"
     },
     "dependencies": {
+        "@heyputer/puter.js": "^2.2.14",
         "express": "^4.19.2",
         "openai": "^4.0.0"
     }
-  }
+}
