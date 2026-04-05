@@ -1,14 +1,14 @@
 # Ahmed's AI Chat React App
 This app is for a career technical assessment in which I will utitlize React.js as the frontend framework and Express.js as the backend framework with the integration of AI prompt using OpenAI and HuggingFace AI APIs for the end user.
 
-You can try this app online via [StackBlitz](https://stackblitz.com/~/MYApp).
+You can try this app online via [StackBlitz](https://stackblitz.com/~/github.com/AhmedH10/ai-chat-app).
 
 ---------------------------------------------------------------------------
 ## Setup Instructions
 
 Follow these steps to run the app locally on StackBlitz:
 
-1. Open the project in [StackBlitz](https://stackblitz.com/~/MYApp).
+1. Open the project in [StackBlitz](https://stackblitz.com/~/github.com/AhmedH10/ai-chat-app).
 
 2. Open the **Terminal** in StackBlitz.
 
